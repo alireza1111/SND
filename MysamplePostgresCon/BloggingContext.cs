@@ -2,12 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using MysamplePostgresCon.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace MysamplePostgresCon
-{
+{ 
     public class BloggingContext : DbContext
     {
         public IConfiguration Configuration { get; }
@@ -27,7 +25,7 @@ namespace MysamplePostgresCon
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
                 .AddJsonFile(@"C:\Users\xdaval\source\repos\MysamplePostgresCon\appsettings.Development.json", optional: false)
-                .AddJsonFile($"appsettings.{envName}.json", optional: true)
+          //      .AddJsonFile($"appsettings.{envName}.json", optional: true)
                 .Build();
 
             optionsBuilder.UseNpgsql(configuration.GetConnectionString("BloggingConnection"));

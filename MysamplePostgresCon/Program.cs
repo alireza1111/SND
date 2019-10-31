@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using MysamplePostgresCon.Models;
 
 namespace MysamplePostgresCon
@@ -41,8 +38,6 @@ namespace MysamplePostgresCon
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
             }
-
         }
     }
-
 }
