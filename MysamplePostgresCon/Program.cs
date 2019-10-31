@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MysamplePostgresCon.Models;
 
 namespace MysamplePostgresCon
 {
@@ -44,46 +45,4 @@ namespace MysamplePostgresCon
         }
     }
 
-    public class Blog
-    {
-        public int BlogId { get; set; }
-        public string Name { get; set; }
-
-        public virtual List<Post> Posts { get; set; }
-    }
-
-    public class Post
-    {
-        public int PostId { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-
-        public int BlogId { get; set; }
-        public virtual Blog Blog { get; set; }
-    }
-    public class BloggingContext : DbContext
-    {
-        public IConfiguration Configuration { get; }
-        public BloggingContext() : base()
-        {
-        }
-
-        public BloggingContext(DbContextOptions options): base(options)
-        {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
-            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=AlirezasDb;User ID = postgres;Password= postgres;Integrated Security=true; Pooling=true;");
-
-            base.OnConfiguring(optionsBuilder);
-        }
-
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Post> Posts { get; set; }
-
-
-
-    }
 }
