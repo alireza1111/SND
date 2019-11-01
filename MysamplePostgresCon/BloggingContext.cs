@@ -23,8 +23,8 @@ namespace MysamplePostgresCon
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
-                .AddJsonFile(@"C:\Users\xdaval\source\repos\MysamplePostgresCon\appsettings.Development.json", optional: false)
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appSettings.Development.json", optional: false)
           //      .AddJsonFile($"appsettings.{envName}.json", optional: true)
                 .Build();
 
